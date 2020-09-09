@@ -1,7 +1,13 @@
-# Submission Statement Bot
-This is a Reddit bot for requiring submission statements on link posts. If an OP does not include a statement (comment on their own post) within a certain timeframe, the post is removed. 
+# Submission Statement & Flair only on certain days Bot
+This is a Reddit bot that checks submissions for two things:
 
-Credit goes to [epicmindwarp](https://github.com/epicmindwarp) for writing this bot. I decided to document the process for getting it up and running on Heroku for free so it can potentially be more available to various moderators. You can currently see this bot running over at [r/collapse](https://reddit.com/r/collapse) as [CollapseBot](https://reddit.com/user/collapsebot).
+* If an OP does not include a statement (comment on their own post) within a certain timeframe, the post is removed. 
+
+* If a post with the specified flair is posted on the wrong day, it will be removed with the given message.
+
+
+Credit goes to [epicmindwarp](https://github.com/epicmindwarp) for writing the initial version of this bot.
+Also credit to [rezl](https://github.com/rezl) for extending it and writing this README.
 
 # Requirements
 - Python 3.7+
@@ -13,7 +19,7 @@ The main advantage of Heroku is their base plan includes enough hours to host th
 # Setup Git
 1. [Create a Github account.](https://github.com/join) 
 
-2. [Assuming you're reading this on the repo page](https://github.com/rezl/SubmissionStatementBot), select ‘fork’ to create a copy of it to your Github account. 
+2. [Assuming you're reading this on the repo page](https://github.com/jackodsteel/SubmissionStatementBot), select ‘fork’ to create a copy of it to your Github account. 
 
 3. From your new repo, select **Clone or download** and then **Download ZIP** to download a local copy. We’ll come back to this later.
 
@@ -73,20 +79,18 @@ The main advantage of Heroku is their base plan includes enough hours to host th
 
 4. Change `ENTER_YOUR_SUBREDDIT_NAME` to your sub’s name. 
 
-5. Set the `REMOVAL_REPLY` text to whatever you’d like the bot to comment after removing a post
+5. Set the two `REMOVAL_REPLY` texts to whatever you’d like the bot to comment after removing a post
 
-6. Change the line `if post_time <= dt(2099, 5, 27, 0, 0)`. The section `‘2099, 5, 27,’` is a date (year, month, day). The bot will not scan posts submitted earlier than this date. Setting this is important, since you don’t want it retroactively removing all the posts on your subreddit since the beginning of time. 
+6. Save the file.
 
-7. Save the file.
-
-8. Open **config.py** and fill in these fields with your info. Make sure not to remove the apostrophes surrounding them.
+7. Open **config.py** and fill in these fields with your info. Make sure not to remove the apostrophes surrounding them.
 ```
 username = 'BotRedditUsername'
 password = 'BotRedditPassword'
 client_id = 'RedditAppClientID'
 client_secret = 'RedditAppSecret'
 ```
-9. Save the file.
+8. Save the file.
 
 
 # Upload the Bot
@@ -135,4 +139,3 @@ Heroku limits the number of hours they will run your bot each month. This can be
 [Making a Reddit + Facebook Messenger Bot](https://pythontips.com/2017/04/13/making-a-reddit-facebook-messenger-bot/)
 
 [RedditBotTest](https://github.com/mconstanza/redditBotHackathon)
-
