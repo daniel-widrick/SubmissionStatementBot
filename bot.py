@@ -23,7 +23,7 @@ SLEEP_SECONDS = 300  # Number of seconds to sleep between scans (300 = 5 minutes
 
 MEME_FLAIR_NAME = 'MEME'
 
-MEME_REMOVAL_REPLY = '''Your post has been removed because Meme posts not allowed.
+MEME_REMOVAL_REPLY = '''Your post has been removed because Meme posts are not allowed.
 
 This is a bot. Replies will not receive responses.
 '''
