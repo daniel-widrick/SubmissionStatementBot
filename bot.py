@@ -136,6 +136,7 @@ def check_submissions(submissions: List[praw.reddit.Submission], valid_submissio
             removal_comment.mod.lock()
             removal_comment.mod.distinguish(sticky=True)
             print('Post removed.')
+            valid_submission_ids.add(submission.id)
 
 
 def main() -> NoReturn:
